@@ -12,11 +12,10 @@ function writePassword() {
 var enter = "";
 var tempValues = "";
 
-var value = "ABCD123456abcdefghijklmnopqrstuvxz";
-
 // VARIABLES
 
-var Number = "1234567890";
+var Number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+console.log(Number);
 var Character = [
   "!",
   "£",
@@ -38,39 +37,68 @@ var Character = [
   "`",
   "|",
 ];
+console.log(Character);
 
-var Uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var Uppercase = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
+console.log(Uppercase);
 
-// var Lowercase = [
-//   "a",
-//   "b",
-//   "c",
-//   "d",
-//   "e",
-//   "f",
-//   "g",
-//   "h",
-//   "i",
-//   "j",
-//   "k",
-//   "l",
-//   "m",
-//   "n",
-//   "o",
-//   "p",
-//   "q",
-//   "r",
-//   "s",
-//   "t",
-//   "u",
-//   "v",
-//   "w",
-//   "x",
-//   "y",
-//   "z",
-// ];
+var Lowercase = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+console.log(Lowercase);
 
-var choices = [];
 // // PROMPTS -----------------------------------------------------------------------
 
 //   // This will pop up on the users screen when they click generate password
@@ -117,14 +145,19 @@ function generatePassword() {
     );
   }
   // to define a password with random values
-  var password = [];
+
+  var choices = [];
+
+  var password = [Number, Character, Uppercase, Lowercase];
+
   for (var i = 0; i < enter; i++) {
     var random = password + choices[Math.floor(Math.random() * choices.length)];
     password.push(random);
     console.log("its worked");
+    console.log(password);
+    console.log(choices);
     // print password
     password.textContent = password;
-    console.log("its logged");
   }
 }
 
@@ -132,10 +165,10 @@ function generatePassword() {
 
 // If they select cancel on everything THIS WORKS
 // else if (
-//  !confirmCharacter &&
-//     !confirmNumber &&
-//     !confirmUppercase &&
-//     !confirmLowercase
+//  !haracter &&
+//     !Number &&
+//     !Uppercase &&
+//     !Lowercase
 //   ) {
 //     choices = alert("You must pick atleast one of the given criteria");
 //   }
