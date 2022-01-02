@@ -10,7 +10,6 @@ function writePassword() {
   passwordText.value = password;
 }
 var enter = "";
-var tempValues = "";
 
 // VARIABLES
 
@@ -112,6 +111,7 @@ function generatePassword() {
       "How long do you want your password to be? Please choose between 8 - 128 characters. "
     )
   );
+  console.log("length of password");
 
   // If the user clicks cancel the below will happen...
   if (!enter) {
@@ -130,23 +130,26 @@ function generatePassword() {
     Number = confirm(
       "Would you like your password to contain numbers? If YES click OK, if NO click cancel"
     );
-
+    console.log("Numbers selected");
     // ..characters...
     Character = confirm(
       "Would you like your password to contain special characters? If YES click OK, if NO click cancel"
     );
+    console.log("Special characters selected");
     // ..uppercase..
     Uppercase = confirm(
       "Would you like your password to contain Uppercase letters? If YES click OK, if NO click cancel"
     );
+    console.log("uppercase selected");
     // ..lowercase..
     Lowercase = confirm(
       "Would you like your password to contain Lowercase letters? If YES click OK, if NO click cancel"
     );
+    console.log("lowercase selected");
   }
   // to define a password with random values
 
-  var choices = [];
+  var choices = [Number, Character, Uppercase, Lowercase];
 
   var password = [Number, Character, Uppercase, Lowercase];
 
@@ -156,20 +159,13 @@ function generatePassword() {
     console.log("its worked");
     console.log(password);
     console.log(choices);
-    // print password
-    password.textContent = password;
+    password.placeholder = password;
   }
 }
+// if (!Character && !Number && !Uppercase && !Lowercase) {
+//   choices = alert("You must pick at least one of the given criteria");
+// }
 
 // THIS IS IF THEY SELECT NUMBER AND CHARACTER THEN THE BELOW WILL INCLUDE IN PWRD, I NEED TO DO THIS FOR EVERY SCENARIO...LIKE IF THEY SELECT XXXX
 
 // If they select cancel on everything THIS WORKS
-// else if (
-//  !haracter &&
-//     !Number &&
-//     !Uppercase &&
-//     !Lowercase
-//   ) {
-//     choices = alert("You must pick atleast one of the given criteria");
-//   }
-// }
