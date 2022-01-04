@@ -9,10 +9,10 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
-var enter = "";
 
 // VARIABLES
 
+var length = "";
 var Number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 console.log(Number);
 var Character = [
@@ -106,7 +106,7 @@ function generatePassword() {
   // Just to confirm the button is defo clicked..
   console.log("Dont worry, button is clicked");
 
-  enter = parseInt(
+  length = parseInt(
     prompt(
       "How long do you want your password to be? Please choose between 8 - 128 characters. "
     )
@@ -114,12 +114,12 @@ function generatePassword() {
   console.log("length of password");
 
   // If the user clicks cancel the below will happen...
-  if (!enter) {
+  if (!length) {
     alert("You must enter a valid value to continue");
   }
   // If the user selects an invalid number then the below will happen...
-  else if (enter < 8 || enter > 128) {
-    enter = parseInt(
+  else if (length < 8 || length > 128) {
+    length = parseInt(
       alert(
         "Your password must be between 8 - 128 characters long. Please select a valid number"
       )
@@ -150,16 +150,19 @@ function generatePassword() {
   // to define a password with random values
 
   var choices = [Number, Character, Uppercase, Lowercase];
+  // var password works as well as doing the same as choices...
+  var password = [];
+  // var secpassword = document.getElementById("#password");
 
-  var password = [Number, Character, Uppercase, Lowercase];
-
-  for (var i = 0; i < enter; i++) {
+  for (var i = 0; i < length; i++) {
     var random = password + choices[Math.floor(Math.random() * choices.length)];
     password.push(random);
+
     console.log("its worked");
     console.log(password);
     console.log(choices);
-    password.placeholder = password;
+
+    // IF I ADD THIS, THEN LENGTH STOPS WORKING?? ALSO TEXT CONTENT IS UNKNOWN ...secpassword.textContent = password;
   }
 }
 // if (!Character && !Number && !Uppercase && !Lowercase) {
