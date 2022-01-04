@@ -12,91 +12,16 @@ function writePassword() {
 
 // VARIABLES
 
-var length = "";
-var Number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-console.log(Number);
-var Character = [
-  "!",
-  "£",
-  "$",
-  "%",
-  "^",
-  "&",
-  "*",
-  "_",
-  "-",
-  "+",
-  "=",
-  ",",
-  ".",
-  "/",
-  ";",
-  "~",
-  "#",
-  "`",
-  "|",
-];
-console.log(Character);
+var plength = "";
 
-var Uppercase = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
-console.log(Uppercase);
+// Below are to be used in prompts
+var Number = [];
 
-var Lowercase = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-];
-console.log(Lowercase);
+var Character = [];
+
+var Uppercase = [];
+
+var Lowercase = [];
 
 // // PROMPTS -----------------------------------------------------------------------
 
@@ -106,7 +31,7 @@ function generatePassword() {
   // Just to confirm the button is defo clicked..
   console.log("Dont worry, button is clicked");
 
-  length = parseInt(
+  plength = parseInt(
     prompt(
       "How long do you want your password to be? Please choose between 8 - 128 characters. "
     )
@@ -114,12 +39,12 @@ function generatePassword() {
   console.log("length of password");
 
   // If the user clicks cancel the below will happen...
-  if (!length) {
+  if (!plength) {
     alert("You must enter a valid value to continue");
   }
   // If the user selects an invalid number then the below will happen...
-  else if (length < 8 || length > 128) {
-    length = parseInt(
+  else if (plength < 8 || plength > 128) {
+    plength = parseInt(
       alert(
         "Your password must be between 8 - 128 characters long. Please select a valid number"
       )
@@ -130,45 +55,58 @@ function generatePassword() {
     Number = confirm(
       "Would you like your password to contain numbers? If YES click OK, if NO click cancel"
     );
-    console.log("Numbers selected");
+    console.log("Pick your numbers");
     // ..characters...
     Character = confirm(
       "Would you like your password to contain special characters? If YES click OK, if NO click cancel"
     );
-    console.log("Special characters selected");
+    console.log("Pick your characters");
     // ..uppercase..
     Uppercase = confirm(
       "Would you like your password to contain Uppercase letters? If YES click OK, if NO click cancel"
     );
-    console.log("uppercase selected");
+    console.log("Pick your uppercase letters");
     // ..lowercase..
     Lowercase = confirm(
       "Would you like your password to contain Lowercase letters? If YES click OK, if NO click cancel"
     );
-    console.log("lowercase selected");
-  }
-  // to define a password with random values
+    console.log("Pick your lowercase letters");
 
-  var choices = [Number, Character, Uppercase, Lowercase];
-  // var password works as well as doing the same as choices...
+    // If none of the given criteria are selected then the below...
+
+    if (!Character && !Number && !Uppercase && !Lowercase) {
+      choices = alert("You must pick at least one of the given criteria");
+    }
+  }
+
+  // Choices for the password
+
+  var choices = "";
+  if (Number == true) {
+    choices = choices + "1234567890";
+  }
+  if (Character == true) {
+    choices = choices + "!£$%^&*~@,|=_-,";
+  }
+  if (Uppercase == true) {
+    choices = choices + "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  }
+  if (Lowercase == true) {
+    choices = choices + "abcdefghijklmnopqrstuvwxyz";
+  }
+
+  // To define a password with random values...
+
   var pword = [];
-  // var secpassword = document.getElementById("#password");
 
-  for (var i = 0; i < length; i++) {
-    var random = pword + choices[Math.floor(Math.random() * choices.length)];
+  for (var i = 0; i < plength; i++) {
+    var random = choices.charAt(Math.floor(Math.random() * choices.length));
     pword.push(random);
-
-    console.log("its worked");
-    console.log(pword);
-    console.log(choices);
-
-    // IF I ADD THIS, THEN LENGTH STOPS WORKING?? ALSO TEXT CONTENT IS UNKNOWN ALSO THIS IS ALREADY ON TOP LINES?? ...secpassword.textContent = password;
   }
+  console.log("its worked");
+  console.log(pword);
+  console.log(choices);
+
+  // Sticking the Password on the label..
+  return pword;
 }
-// if (!Character && !Number && !Uppercase && !Lowercase) {
-//   choices = alert("You must pick at least one of the given criteria");
-// }
-
-// THIS IS IF THEY SELECT NUMBER AND CHARACTER THEN THE BELOW WILL INCLUDE IN PWRD, I NEED TO DO THIS FOR EVERY SCENARIO...LIKE IF THEY SELECT XXXX
-
-// If they select cancel on everything THIS WORKS
