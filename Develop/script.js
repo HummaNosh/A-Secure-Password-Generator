@@ -97,16 +97,15 @@ function generatePassword() {
 
   // To define a password with random values...
 
-  var pword = [];
+  var pword = [""];
 
   for (var i = 0; i < plength; i++) {
     var random = choices.charAt(Math.floor(Math.random() * choices.length));
     pword.push(random);
   }
   console.log("its worked");
-  console.log(pword);
-  console.log(choices);
+  console.log(pword.join(""));
 
   // Sticking the Password on the label..
-  return pword;
+  return pword.join("");
 }
