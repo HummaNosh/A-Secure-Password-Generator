@@ -27,5 +27,7 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 
 A screenshot of the website is below:
+![image](https://user-images.githubusercontent.com/93604239/148139298-cf47ac3f-2b13-4c51-b4c3-6662fb0ebd41.png)
 
-Deployed link:
+
+Deployed link: https://hummanosh.github.io/A-Secure-Password-Generator/
