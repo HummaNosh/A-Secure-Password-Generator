@@ -151,18 +151,18 @@ function generatePassword() {
 
   var choices = [Number, Character, Uppercase, Lowercase];
   // var password works as well as doing the same as choices...
-  var password = [];
+  var pword = [];
   // var secpassword = document.getElementById("#password");
 
   for (var i = 0; i < length; i++) {
-    var random = password + choices[Math.floor(Math.random() * choices.length)];
-    password.push(random);
+    var random = pword + choices[Math.floor(Math.random() * choices.length)];
+    pword.push(random);
 
     console.log("its worked");
-    console.log(password);
+    console.log(pword);
     console.log(choices);
 
-    // IF I ADD THIS, THEN LENGTH STOPS WORKING?? ALSO TEXT CONTENT IS UNKNOWN ...secpassword.textContent = password;
+    // IF I ADD THIS, THEN LENGTH STOPS WORKING?? ALSO TEXT CONTENT IS UNKNOWN ALSO THIS IS ALREADY ON TOP LINES?? ...secpassword.textContent = password;
   }
 }
 // if (!Character && !Number && !Uppercase && !Lowercase) {
